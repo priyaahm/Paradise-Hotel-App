@@ -4,7 +4,7 @@ import react from '@vitejs/plugin-react'
 // https://vite.dev/config/
 export default defineConfig({
   plugins: [react()],
-  base: '/Paradise-Hotel-App',
+  base: '/',  // Change from '/Paradise-Hotel-App' to '/'
   server: {
     port: 5173,
     strictPort: true,
@@ -14,4 +14,3 @@ export default defineConfig({
     sourcemap: true,
   },
 });
-
