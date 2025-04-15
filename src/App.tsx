@@ -12,7 +12,7 @@ import SpecialOffers from "./pages/SpecialOffers";
 function App() {
   return (
     <AuthProvider>
-      <Router basename="/Hotel-Booking-App">
+      <Router basename="/Paradise-Hotel-App">
         <div className="min-h-screen flex flex-col">
           <Navbar />
           <div className="flex-grow">
