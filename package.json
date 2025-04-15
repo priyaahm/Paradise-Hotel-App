@@ -3,6 +3,9 @@
   "private": true,
   "version": "0.0.0",
   "homepage": "https://priyaahm.github.io/Paradise-Hotel-App/",
+  "engines": {
+    "node": ">=18.0.0"
+  },
   "scripts": {
     "dev": "vite",
     "build": "vite build",
