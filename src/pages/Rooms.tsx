@@ -1,17 +1,18 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
 import stayImage from "../assets/stay.jpg";
-
+import Room6 from "../assets/1 (6).jpeg";
+import Room8 from "../assets/1 (8).jpeg";
+import Room10 from "../assets/1 (10).jpeg";
 const rooms = [
   {
     id: "luxury-villa",
     name: "Luxury Pool Villa",
-    image:
-      "https://images.unsplash.com/photo-1602002418082-a4443e081dd1?auto=format&fit=crop&q=80&w=1920&h=1080",
+    image: Room6,
     description:
       "Experience ultimate luxury in our signature pool villa featuring a private infinity pool, garden views, and premium amenities. Perfect for families seeking an exclusive and memorable stay.",
-    price: 25000,
-    capacity: 8,
+    price: 2500,
+    capacity: 6,
     amenities: [
       "Private Infinity Pool",
       "Garden View",
@@ -29,8 +30,8 @@ const rooms = [
     image: stayImage,
     description:
       "Luxurious 3 BHK villa with modern amenities and a private garden. Ideal for families or groups looking for a comfortable and spacious stay.",
-    price: 15000,
-    capacity: 6,
+    price: 5000,
+    capacity: 8,
     amenities: [
       "Free Wi-Fi",
       "Air Conditioning",
@@ -44,13 +45,12 @@ const rooms = [
   },
   {
     id: "garden-suite",
-    name: "Garden Suite",
-    image:
-      "https://images.unsplash.com/photo-1596394516093-501ba68a0ba6?auto=format&fit=crop&q=80&w=1920&h=1080",
+    name: "Dup Suite",
+    image: Room8,
     description:
       "Elegant suite overlooking our beautiful gardens. Features a spacious bedroom, living area, and private balcony perfect for nature lovers.",
-    price: 12000,
-    capacity: 4,
+    price: 2000,
+    capacity: 2,
     amenities: [
       "Garden View",
       "Private Balcony",
@@ -65,12 +65,11 @@ const rooms = [
   {
     id: "family-suite",
     name: "Family Suite",
-    image:
-      "https://images.unsplash.com/photo-1616594039964-ae9021a400a0?auto=format&fit=crop&q=80&w=1920&h=1080",
+    image: Room10,
     description:
       "Spacious family suite with interconnected rooms, perfect for families with children. Includes a living area and dining space.",
-    price: 18000,
-    capacity: 6,
+    price: 4000,
+    capacity: 4,
     amenities: [
       "Interconnected Rooms",
       "Living Area",
@@ -78,26 +77,6 @@ const rooms = [
       "Air Conditioning",
       "Mini Kitchen",
       "Kids Play Area",
-      "Room Service",
-      "Daily Housekeeping",
-    ],
-  },
-  {
-    id: "honeymoon-suite",
-    name: "Honeymoon Suite",
-    image:
-      "https://images.unsplash.com/photo-1618773928121-c32242e63f39?auto=format&fit=crop&q=80&w=1920&h=1080",
-    description:
-      "Romantic suite designed for couples, featuring a luxurious bedroom, private balcony with scenic views, and special amenities for a memorable stay.",
-    price: 20000,
-    capacity: 2,
-    amenities: [
-      "Scenic View",
-      "Private Balcony",
-      "Free Wi-Fi",
-      "Air Conditioning",
-      "Jacuzzi",
-      "Champagne Setup",
       "Room Service",
       "Daily Housekeeping",
     ],
@@ -204,7 +183,7 @@ const Rooms = () => {
           <h3 className="text-xl font-semibold mb-4">Connect With Us</h3>
           <div className="flex justify-center space-x-6">
             <a
-              href="https://www.instagram.com/paradisehotelrestaurant/"
+              href="https://www.instagram.com/paradisegroups.official/"
               target="_blank"
               rel="noopener noreferrer"
               className="text-pink-600 hover:text-pink-700 transition-colors duration-300"
@@ -214,7 +193,7 @@ const Rooms = () => {
               </svg>
             </a>
             <a
-              href="https://facebook.com/pebblesstay"
+              href="https://www.facebook.com/people/Paradise-Groups/61563457773817/"
               target="_blank"
               rel="noopener noreferrer"
               className="text-blue-600 hover:text-blue-700 transition-colors duration-300"

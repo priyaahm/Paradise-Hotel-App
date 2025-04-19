@@ -1,35 +1,36 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
-
+import Room12 from "../assets/1 (12).jpeg";
+import Room11 from "../assets/1 (11).jpeg";
+import Room6 from "../assets/1 (6).jpeg";
+import Room10 from "../assets/1 (10).jpeg";
 const offers = [
   {
     id: "honeymoon-package",
-    title: "Honeymoon Package",
-    image:
-      "https://images.unsplash.com/photo-1520250497591-112f2f40a3f4?auto=format&fit=crop&q=80&w=1920&h=1080",
+    title: "Jumbo Package",
+    image: Room10,
     description:
-      "Make your honeymoon unforgettable with our special package including:",
-    price: 35000,
+      "Make your trip unforgettable with our special package including:",
+    price: 3500,
     duration: "3 nights",
     includes: [
-      "Luxury Honeymoon Suite Stay",
-      "Romantic Candlelight Dinner",
+      "Luxury  Suite Stay",
+      "Candlelight Dinner",
       "Couple's Spa Treatment",
       "Champagne and Chocolate Setup",
       "Airport Transfers",
       "Breakfast in Bed",
     ],
-    validTill: "December 31, 2024",
+    validTill: "December 31, 2025",
     discount: "20% off on regular rates",
   },
   {
     id: "family-vacation",
     title: "Family Vacation Package",
-    image:
-      "https://images.unsplash.com/photo-1584132967334-10e028bd69f7?auto=format&fit=crop&q=80&w=1920&h=1080",
+    image: Room11,
     description:
       "Create lasting memories with your family with our all-inclusive package:",
-    price: 45000,
+    price: 4500,
     duration: "4 nights",
     includes: [
       "Family Suite Accommodation",
@@ -39,16 +40,15 @@ const offers = [
       "Family Photoshoot Session",
       "Welcome Gift for Kids",
     ],
-    validTill: "March 31, 2025",
+    validTill: "August 31, 2025",
     discount: "15% off on regular rates",
   },
   {
     id: "weekend-getaway",
     title: "Weekend Getaway",
-    image:
-      "https://images.unsplash.com/photo-1571896349842-33c89424de2d?auto=format&fit=crop&q=80&w=1920&h=1080",
+    image: Room12,
     description: "Perfect weekend escape with premium amenities:",
-    price: 25000,
+    price: 2500,
     duration: "2 nights",
     includes: [
       "Luxury Room Stay",
@@ -58,16 +58,15 @@ const offers = [
       "Access to All Facilities",
       "Late Check-out",
     ],
-    validTill: "June 30, 2024",
+    validTill: "June 30, 2025",
     discount: "10% off on regular rates",
   },
   {
     id: "summer-special",
     title: "Summer Special",
-    image:
-      "https://images.unsplash.com/photo-1576013551627-0cc20b96c2a7?auto=format&fit=crop&q=80&w=1920&h=1080",
+    image: Room6,
     description: "Beat the heat with our refreshing summer package:",
-    price: 30000,
+    price: 3000,
     duration: "3 nights",
     includes: [
       "Pool View Room",
@@ -77,7 +76,7 @@ const offers = [
       "Spa Treatment",
       "Evening Entertainment",
     ],
-    validTill: "May 31, 2024",
+    validTill: "May 31, 2025",
     discount: "25% off on regular rates",
   },
 ];

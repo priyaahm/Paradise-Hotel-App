@@ -1,18 +1,28 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import "../App.css";
+import Room from "../assets/1 (1).jpeg";
+import Room1 from "../assets/1 (2).jpeg";
+import Room2 from "../assets/1 (3).jpeg";
+import Room3 from "../assets/1 (4).jpeg";
+import Room4 from "../assets/1 (5).jpeg";
+import Room5 from "../assets/1 (6).jpeg";
+import Slider from "react-slick";
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
 
 const Home = () => {
   return (
     <div className="min-h-screen p-8 flex flex-col">
       <div className="flex-grow">
         <h1 className="text-4xl font-bold mb-8 text-center bg-gradient-to-r from-blue-700 via-blue-600 to-blue-500 text-transparent bg-clip-text">
-          Paradise Auro Jungle Resort – Enjoy Nature At Its Finest!
+          Paradise Auro Oceanic Resort – Enjoy Nature At Its Finest!
         </h1>
 
         <div className="w-full max-w-6xl mx-auto mb-12">
           <div className="aspect-w-16 aspect-h-9 rounded-lg overflow-hidden shadow-xl">
             <img
-              src="https://images.unsplash.com/photo-1618773928121-c32242e63f39?auto=format&fit=crop&q=80"
+              src={Room}
               alt="Luxury Hotel Room"
               className="w-full h-full object-cover"
             />
@@ -56,16 +66,61 @@ const Home = () => {
       {/* Resort Description Section */}
       <div className="max-w-6xl mx-auto mb-12">
         <h2 className="text-3xl font-bold text-center mb-8 bg-gradient-to-r from-blue-700 via-blue-600 to-blue-500 text-transparent bg-clip-text">
-          Paradise Auro Jungle Resort Resorts in Pondicherry Auroville Photos
+          Paradise Auro Oceanic Resort Resorts in Pondicherry Auroville Photos
         </h2>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
           <div className="rounded-lg overflow-hidden shadow-xl">
-            <img
-              src="https://images.unsplash.com/photo-1499793983690-e29da59ef1c2?auto=format&fit=crop&q=80"
-              alt="Paradise Auro Jungle Resort"
-              className="w-full h-[400px] object-cover"
-            />
+            <div className="w-full overflow-hidden rounded-lg shadow-xl">
+              <Slider
+                dots={false}
+                infinite={true}
+                speed={500}
+                slidesToShow={1}
+                slidesToScroll={1}
+                arrows={true} /* Enable arrows */
+                autoplay={true}
+                autoplaySpeed={4000}
+              >
+                <img
+                  src={Room1}
+                  alt="Room 1"
+                  className="w-full h-[400px] object-cover"
+                />
+                <img
+                  src={Room2}
+                  alt="Room 2"
+                  className="w-full h-[400px] object-cover"
+                />
+                <img
+                  src={Room3}
+                  alt="Room 3"
+                  className="w-full h-[400px] object-cover"
+                />
+                <img
+                  src={Room4}
+                  alt="Room 4"
+                  className="w-full h-[400px] object-cover"
+                />
+                <img
+                  src={Room5}
+                  alt="Room 5"
+                  className="w-full h-[400px] object-cover"
+                />
+              </Slider>
+            </div>
+            <p
+              style={{
+                fontFamily: "Arial, sans-serif",
+                fontWeight: "bold",
+                fontStyle: "italic",
+                fontSize: "18px",
+                color: "#333",
+              }}
+            >
+              Slide to see more
+            </p>
           </div>
+
           <div className="space-y-4">
             <p className="text-gray-700 leading-relaxed">
               Welcome to Paradise Auro Jungle Resort, where luxury meets nature
@@ -121,18 +176,18 @@ const Home = () => {
             <div>
               <h3 className="text-xl font-semibold mb-4">Contact Us</h3>
               <p className="text-gray-600 mb-2">
-                <span className="font-medium">Phone:</span> +91 123-456-7890
+                <span className="font-medium">Phone:</span> +91 80569 54927
               </p>
               <p className="text-gray-600 mb-2">
                 <span className="font-medium">Email:</span>{" "}
-                info@paradisehotels.com
+                support@paradisebookings.in
               </p>
               <p className="text-gray-600 mb-4">
                 <span className="font-medium">Address:</span>
                 <br />
-                2nd, left of Dhana Community Check Post Auroville,
+                Nearby Matrimandir, Globe,
                 <br />
-                Auroville, Puducherry,
+                Auroville, Irumbai,
                 <br />
                 Tamil Nadu 605101, India
               </p>
@@ -205,14 +260,14 @@ const Home = () => {
               <h3 className="text-xl font-semibold mb-4">Location Map</h3>
               <div className="rounded-lg overflow-hidden shadow-md h-[200px] sm:h-[225px] md:h-[250px] lg:h-[275px] w-[105%] -ml-[2.5%]">
                 <iframe
-                  src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d7804.857483795671!2d79.823239!3d12.013977!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a5367def86a5f17%3A0x1dab0c6545e73449!2sParadise%20Auro%20Jungle%20Resort%20%7C%20Resorts%20in%20Pondicherry!5e0!3m2!1sen!2sus!4v1740911786954!5m2!1sen!2sus"
+                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3902.2295139240396!2d79.80064899999999!3d12.0277142!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a536759bff2ffd3%3A0xc798ff2e9e8abbd4!2sParadise%20Auro%20Oceanic%20Resort!5e0!3m2!1sen!2sin!4v1745044332169!5m2!1sen!2sin"
                   width="100%"
                   height="100%"
                   style={{ border: 0 }}
                   allowFullScreen
                   loading="lazy"
                   referrerPolicy="no-referrer-when-downgrade"
-                  title="Paradise Auro Jungle Resort Location"
+                  title="Paradise Auro Oceanic Resort Location"
                   className="w-full h-full"
                 />
               </div>
