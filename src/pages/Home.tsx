@@ -123,7 +123,7 @@ const Home = () => {
 
           <div className="space-y-4">
             <p className="text-gray-700 leading-relaxed">
-              Welcome to Paradise Auro Jungle Resort, where luxury meets nature
+              Welcome to Paradise Auro Oceanic Resort, where luxury meets nature
               in the heart of Auroville, Pondicherry. Our resort is nestled in a
               lush green environment, offering a perfect escape from the urban
               hustle.
@@ -132,7 +132,7 @@ const Home = () => {
               Experience the unique blend of modern comfort and natural
               serenity. Our resort features spacious rooms with private
               balconies, allowing you to immerse yourself in the surrounding
-              jungle atmosphere while enjoying world-class amenities.
+              oceanic atmosphere while enjoying world-class amenities.
             </p>
             <p className="text-gray-700 leading-relaxed">
               When you choose to stay at our hotel, you'll experience excellent
@@ -176,7 +176,7 @@ const Home = () => {
             <div>
               <h3 className="text-xl font-semibold mb-4">Contact Us</h3>
               <p className="text-gray-600 mb-2">
-                <span className="font-medium">Phone:</span> +91 80569 54927
+                <span className="font-medium">Phone:</span> +91 8525092210
               </p>
               <p className="text-gray-600 mb-2">
                 <span className="font-medium">Email:</span>{" "}
@@ -185,9 +185,9 @@ const Home = () => {
               <p className="text-gray-600 mb-4">
                 <span className="font-medium">Address:</span>
                 <br />
-                Nearby Matrimandir, Globe,
+                290,Auroville Rd,Auroville,
                 <br />
-                Auroville, Irumbai,
+                Kuilapalayam, Bommayapalayam,
                 <br />
                 Tamil Nadu 605101, India
               </p>
@@ -277,7 +277,10 @@ const Home = () => {
             </div>
           </div>
           <div className="mt-8 pt-4 border-t border-gray-200 text-center text-gray-500">
-            <p>&copy; 2024 Paradise Hotels. All rights reserved.</p>
+            <p>
+              &copy; 2025. All rights reserved to Paradise Group of Resorts and
+              Hotels.
+            </p>
           </div>
         </div>
       </footer>
