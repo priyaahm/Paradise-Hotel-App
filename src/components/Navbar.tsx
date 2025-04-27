@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
+import Logo from "../assets/Logo.png";
 
 const Navbar = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
@@ -33,12 +34,12 @@ const Navbar = () => {
   ];
 
   return (
-    <nav className="bg-white shadow-md">
+    <nav className="bg-primary-50 shadow-md">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between h-16">
           <div className="flex items-center">
-            <Link to="/" className="text-xl font-bold text-blue-600">
-              Paradise Resorts
+            <Link to="/" className="flex items-center">
+              <img src={Logo} alt="Hotel Logo" className="h-12 w-auto mr-2" />
             </Link>
           </div>
 
@@ -50,8 +51,8 @@ const Navbar = () => {
                 to={link.path}
                 className={`px-3 py-2 rounded-md text-sm font-medium ${
                   isActivePath(link.path)
-                    ? "bg-blue-100 text-blue-700"
-                    : "text-gray-700 hover:bg-gray-100"
+                    ? "bg-primary-100 text-primary-700"
+                    : "text-secondary-700 hover:bg-primary-100"
                 }`}
               >
                 {link.label}
@@ -59,17 +60,17 @@ const Navbar = () => {
             ))}
             <button
               onClick={handleBookNow}
-              className="px-3 py-2 rounded-md text-sm font-medium bg-blue-600 text-white hover:bg-blue-700"
+              className="px-3 py-2 rounded-md text-sm font-medium bg-primary-600 text-white hover:bg-primary-700"
             >
               Book Now
             </button>
           </div>
 
           {/* Mobile Menu Button */}
-          <div className="md:hidden">
+          <div className="md:hidden flex items-center">
             <button
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-              className="inline-flex items-center justify-center p-2 rounded-md text-gray-700 hover:text-gray-900 hover:bg-gray-100 focus:outline-none"
+              className="inline-flex items-center justify-center p-2 rounded-md text-secondary-700 hover:text-secondary-900 hover:bg-primary-100 focus:outline-none"
             >
               <svg
                 className="h-6 w-6"
@@ -108,8 +109,8 @@ const Navbar = () => {
                 to={link.path}
                 className={`block px-3 py-2 rounded-md text-base font-medium ${
                   isActivePath(link.path)
-                    ? "bg-blue-100 text-blue-700"
-                    : "text-gray-700 hover:bg-gray-100"
+                    ? "bg-primary-100 text-primary-700"
+                    : "text-secondary-700 hover:bg-primary-100"
                 }`}
                 onClick={() => setIsMobileMenuOpen(false)}
               >
@@ -121,7 +122,7 @@ const Navbar = () => {
                 handleBookNow();
                 setIsMobileMenuOpen(false);
               }}
-              className="w-full text-left px-3 py-2 rounded-md text-base font-medium bg-blue-600 text-white hover:bg-blue-700"
+              className="w-full text-left px-3 py-2 rounded-md text-base font-medium bg-primary-600 text-white hover:bg-primary-700"
             >
               Book Now
             </button>

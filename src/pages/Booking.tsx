@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useNavigate, useLocation } from "react-router-dom";
 import { useForm, Controller } from "react-hook-form";
+import Logo from "../assets/Logo.png";
 
 interface BookingForm {
   checkIn: string;
@@ -225,6 +226,9 @@ const Booking = () => {
   return (
     <div className="min-h-screen bg-gray-50 py-12">
       <div className="container mx-auto px-4 max-w-4xl">
+        <div className="flex justify-end mb-8">
+          <img src={Logo} alt="Hotel Logo" className="h-16 w-auto" />
+        </div>
         <h1 className="text-4xl font-bold mb-8 text-center text-blue-700">
           {isOffer ? "Package Booking" : "Room Booking"}
         </h1>
