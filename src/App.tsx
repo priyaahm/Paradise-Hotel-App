@@ -8,6 +8,11 @@ import Payment from "./pages/Payment";
 import BookingConfirmation from "./pages/BookingConfirmation";
 import Rooms from "./pages/Rooms";
 import SpecialOffers from "./pages/SpecialOffers";
+import AboutUs from "./pages/AboutUs";
+import PrivacyPolicy from "./pages/PrivacyPolicy";
+import TermsAndConditions from "./pages/TermsAndConditions";
+import CancellationPolicy from "./pages/CancellationPolicy";
+import FAQ from "./pages/FAQ";
 
 function App() {
   return (
@@ -23,6 +28,14 @@ function App() {
               <Route path="/payment" element={<Payment />} />
               <Route path="/login" element={<Login />} />
               <Route path="/special-offers" element={<SpecialOffers />} />
+              <Route path="/about" element={<AboutUs />} />
+              <Route path="/privacy-policy" element={<PrivacyPolicy />} />
+              <Route path="/terms" element={<TermsAndConditions />} />
+              <Route
+                path="/cancellation-policy"
+                element={<CancellationPolicy />}
+              />
+              <Route path="/faq" element={<FAQ />} />
               <Route
                 path="/booking-confirmation"
                 element={<BookingConfirmation />}

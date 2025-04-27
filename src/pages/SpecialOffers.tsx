@@ -6,7 +6,7 @@ import Room6 from "../assets/1 (6).jpeg";
 import Room10 from "../assets/1 (10).jpeg";
 const offers = [
   {
-    id: "honeymoon-package",
+    id: "jumbo-package",
     title: "Jumbo Package",
     image: Room10,
     description:
@@ -14,7 +14,7 @@ const offers = [
     price: 3500,
     duration: "3 nights",
     includes: [
-      "Luxury  Suite Stay",
+      "Luxury Suite Stay",
       "Candlelight Dinner",
       "Couple's Spa Treatment",
       "Champagne and Chocolate Setup",

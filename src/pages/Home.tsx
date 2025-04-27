@@ -192,7 +192,7 @@ const Home = () => {
                 Tamil Nadu 605101, India
               </p>
               <a
-                href="https://www.booking.com/hotel/gb/park-house-hotel.en-us.html?aid=2313352&sid=31de9712dd2fbdc4ca6ea2654c682a5c&dist=0&keep_landing=1&lang=en-us&lang_changed=1&sb_price_type=total&type=total&"
+                href="https://paradisegroups.in/contact-us/"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-block bg-blue-600 text-white px-6 py-2 rounded-md hover:bg-blue-700 transition-colors"
@@ -205,53 +205,43 @@ const Home = () => {
               <h3 className="text-xl font-semibold mb-4">Quick Links</h3>
               <div className="space-y-2">
                 <a
-                  href="/about-us"
+                  href="/about"
                   className="block text-blue-600 hover:text-blue-700"
                 >
                   About Us
                 </a>
+
                 <a
-                  href="/gallery"
-                  className="block text-blue-600 hover:text-blue-700"
-                >
-                  Photo Gallery
-                </a>
-                <a
-                  href="/dining"
+                  href="https://www.zomato.com/puducherry"
                   className="block text-blue-600 hover:text-blue-700"
                 >
                   Dining Options
                 </a>
-                <a
-                  href="/activities"
-                  className="block text-blue-600 hover:text-blue-700"
-                >
-                  Activities & Events
-                </a>
-                <a
-                  href="/privacy-policy"
+
+                <Link
+                  to="/privacy-policy"
                   className="block text-blue-600 hover:text-blue-700"
                 >
                   Privacy Policy
-                </a>
-                <a
-                  href="/terms-conditions"
+                </Link>
+                <Link
+                  to="/terms"
                   className="block text-blue-600 hover:text-blue-700"
                 >
                   Terms & Conditions
-                </a>
-                <a
-                  href="/cancellation-policy"
+                </Link>
+                <Link
+                  to="/cancellation-policy"
                   className="block text-blue-600 hover:text-blue-700"
                 >
                   Cancellation Policy
-                </a>
-                <a
-                  href="/faq"
+                </Link>
+                <Link
+                  to="/faq"
                   className="block text-blue-600 hover:text-blue-700"
                 >
-                  FAQs
-                </a>
+                  FAQ
+                </Link>
               </div>
             </div>
 

@@ -44,8 +44,8 @@ const rooms = [
     ],
   },
   {
-    id: "garden-suite",
-    name: "Dup Suite",
+    id: "duplex-suite",
+    name: "Duplex Suite",
     image: Room8,
     description:
       "Elegant suite overlooking our beautiful gardens. Features a spacious bedroom, living area, and private balcony perfect for nature lovers.",

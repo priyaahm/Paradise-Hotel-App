@@ -1,14 +1,10 @@
 import React, { useEffect, useState } from "react";
 import { useNavigate, useLocation } from "react-router-dom";
 import { useForm, Controller } from "react-hook-form";
-import { DatePicker } from "@mui/x-date-pickers/DatePicker";
-import { LocalizationProvider } from "@mui/x-date-pickers/LocalizationProvider";
-import { AdapterDayjs } from "@mui/x-date-pickers/AdapterDayjs";
-import dayjs from "dayjs";
 
 interface BookingForm {
-  checkIn: Date;
-  checkOut: Date;
+  checkIn: string;
+  checkOut: string;
   guests: number;
   roomType: string;
   name: string;
@@ -44,66 +40,66 @@ const roomTypes: RoomType[] = [
   {
     id: "luxury-villa",
     name: "Luxury Pool Villa",
-    price: 25000,
+    price: 2500,
     description: "Luxury villa with private pool",
-    capacity: 8,
+    capacity: 6,
   },
   {
     id: "premium-villa",
     name: "Premium 3 BHK Villa",
-    price: 15000,
+    price: 5000,
     description: "Spacious villa with modern amenities",
-    capacity: 6,
+    capacity: 8,
   },
   {
-    id: "garden-suite",
-    name: "Garden Suite",
-    price: 12000,
+    id: "duplex-suite",
+    name: "Duplex Suite",
+    price: 2000,
     description: "Elegant suite with garden view",
+    capacity: 2,
+  },
+  {
+    id: "jumbo-package",
+    name: "Jumbo Package",
+    price: 3500,
+    description: "Perfect for families",
     capacity: 4,
   },
   {
-    id: "family-suite",
-    name: "Family Suite",
-    price: 18000,
-    description: "Perfect for families",
-    capacity: 6,
-  },
-  {
-    id: "honeymoon-suite",
-    name: "Honeymoon Suite",
-    price: 20000,
+    id: "family-vacation",
+    name: "Family Vacation Package",
+    price: 4500,
     description: "Romantic suite for couples",
-    capacity: 2,
+    capacity: 6,
   },
 ];
 
 const offers: OfferType[] = [
   {
-    id: "honeymoon-package",
-    name: "Honeymoon Package",
-    price: 35000,
+    id: "weekend-getaway",
+    name: "Weekend Getaway",
+    price: 2500,
     duration: "3 nights",
     capacity: 2,
   },
   {
     id: "family-vacation",
     name: "Family Vacation Package",
-    price: 45000,
+    price: 4500,
     duration: "4 nights",
     capacity: 6,
   },
   {
     id: "weekend-getaway",
     name: "Weekend Getaway",
-    price: 25000,
+    price: 2500,
     duration: "2 nights",
     capacity: 4,
   },
   {
     id: "summer-special",
     name: "Summer Special",
-    price: 30000,
+    price: 3000,
     duration: "3 nights",
     capacity: 4,
   },
@@ -112,7 +108,6 @@ const offers: OfferType[] = [
 const Booking = () => {
   const navigate = useNavigate();
   const location = useLocation();
-  console.log("Location state:", location.state);
 
   const {
     selectedRoom,
@@ -121,24 +116,17 @@ const Booking = () => {
     roomDetails,
   } = (location.state as LocationState) || {};
 
-  console.log("Extracted state:", {
-    selectedRoom,
-    selectedOffer,
-    locationIsOffer,
-    roomDetails,
-  });
-
   const [isOffer, setIsOffer] = useState(locationIsOffer || false);
   const [selectedDetails, setSelectedDetails] = useState<
     RoomType | OfferType | undefined
   >(roomDetails || roomTypes[0]);
 
-  console.log("Initial state:", { isOffer, selectedDetails });
-
   const { control, handleSubmit, watch, setValue } = useForm<BookingForm>({
     defaultValues: {
-      checkIn: new Date(),
-      checkOut: new Date(Date.now() + 24 * 60 * 60 * 1000),
+      checkIn: new Date().toISOString().split("T")[0],
+      checkOut: new Date(Date.now() + 24 * 60 * 60 * 1000)
+        .toISOString()
+        .split("T")[0],
       guests: 1,
       roomType: selectedRoom || "luxury-villa",
       name: "",
@@ -148,27 +136,19 @@ const Booking = () => {
     },
   });
 
-  // Set initial room type if not set
   useEffect(() => {
-    console.log("Initial setup effect running");
     if (!selectedRoom && !selectedOffer) {
-      console.log("No room or offer selected, setting defaults");
       setValue("roomType", "luxury-villa");
       setSelectedDetails(roomTypes[0]);
     }
   }, [selectedRoom, selectedOffer, setValue]);
 
-  // Update selected details when room details change
   useEffect(() => {
-    console.log("Room details effect running");
     if (roomDetails) {
-      console.log("Room details found:", roomDetails);
       setSelectedDetails(roomDetails);
       setValue("roomType", roomDetails.id);
     } else if (selectedRoom) {
-      console.log("Selected room found:", selectedRoom);
       const foundRoom = roomTypes.find((room) => room.id === selectedRoom);
-      console.log("Found room:", foundRoom);
       if (foundRoom) {
         setSelectedDetails(foundRoom);
         setValue("roomType", foundRoom.id);
@@ -176,15 +156,11 @@ const Booking = () => {
     }
   }, [selectedRoom, roomDetails, setValue]);
 
-  // Update selected details when offer changes
   useEffect(() => {
-    console.log("Offer selection effect running");
     if (selectedOffer) {
-      console.log("Selected offer found:", selectedOffer);
       setIsOffer(true);
       setValue("roomType", selectedOffer);
       const offer = offers.find((o) => o.id === selectedOffer);
-      console.log("Found offer:", offer);
       if (offer) {
         setSelectedDetails(offer);
       }
@@ -192,28 +168,20 @@ const Booking = () => {
   }, [selectedOffer, setValue]);
 
   const selectedType = watch("roomType");
-  console.log("Selected type:", selectedType);
 
-  // Update selected details when room type changes
   useEffect(() => {
-    console.log("Room type change effect running");
     if (selectedType) {
-      console.log("Selected type changed:", selectedType);
       const details = isOffer
         ? offers.find((offer) => offer.id === selectedType)
         : roomTypes.find((room) => room.id === selectedType);
-      console.log("Found details:", details);
       if (details) {
         setSelectedDetails(details);
       }
     }
   }, [selectedType, isOffer]);
 
-  // Force initial render with default room
   useEffect(() => {
-    console.log("Force initial render effect");
     if (!selectedDetails) {
-      console.log("No details selected, setting default");
       setSelectedDetails(roomTypes[0]);
       setValue("roomType", roomTypes[0].id);
     }
@@ -225,16 +193,7 @@ const Booking = () => {
       : (option as RoomType).description;
   };
 
-  const getDuration = (details: RoomType | OfferType | undefined) => {
-    if (!details || !isOffer) return 1;
-    const duration = (details as OfferType).duration;
-    return parseInt(duration);
-  };
-
   const onSubmit = (data: BookingForm) => {
-    console.log("Form submitted:", data);
-    console.log("Selected details:", selectedDetails);
-
     navigate("/payment", {
       state: {
         bookingDetails: {
@@ -251,9 +210,7 @@ const Booking = () => {
     });
   };
 
-  // Add a check to ensure we have selectedDetails before rendering
   if (!selectedDetails) {
-    console.log("No details selected, showing loading state");
     return (
       <div className="min-h-screen bg-gray-50 py-12">
         <div className="container mx-auto px-4 max-w-4xl">
@@ -264,8 +221,6 @@ const Booking = () => {
       </div>
     );
   }
-
-  console.log("Rendering booking form with details:", selectedDetails);
 
   return (
     <div className="min-h-screen bg-gray-50 py-12">
@@ -302,7 +257,7 @@ const Booking = () => {
                     <input
                       {...field}
                       type="text"
-                      className="w-full p-2 border rounded-md"
+                      className="w-full p-2 border rounded-md bg-white text-gray-900 placeholder-gray-500"
                       placeholder="Enter your full name"
                     />
                   )}
@@ -321,7 +276,7 @@ const Booking = () => {
                     <input
                       {...field}
                       type="email"
-                      className="w-full p-2 border rounded-md"
+                      className="w-full p-2 border rounded-md bg-white text-gray-900 placeholder-gray-500"
                       placeholder="Enter your email"
                     />
                   )}
@@ -340,7 +295,7 @@ const Booking = () => {
                     <input
                       {...field}
                       type="tel"
-                      className="w-full p-2 border rounded-md"
+                      className="w-full p-2 border rounded-md bg-white text-gray-900 placeholder-gray-500"
                       placeholder="Enter your phone number"
                     />
                   )}
@@ -360,7 +315,7 @@ const Booking = () => {
                       {...field}
                       min={1}
                       max={selectedDetails?.capacity || 8}
-                      className="w-full p-2 border rounded-md"
+                      className="w-full p-2 border rounded-md bg-white text-gray-900"
                     />
                   )}
                 />
@@ -372,41 +327,42 @@ const Booking = () => {
                 <label className="block text-sm font-medium text-gray-700 mb-2">
                   Check-in Date *
                 </label>
-                <LocalizationProvider dateAdapter={AdapterDayjs}>
-                  <Controller
-                    name="checkIn"
-                    control={control}
-                    render={({ field }) => (
-                      <DatePicker
-                        {...field}
-                        className="w-full"
-                        disablePast
-                        format="DD/MM/YYYY"
-                      />
-                    )}
-                  />
-                </LocalizationProvider>
+                <Controller
+                  name="checkIn"
+                  control={control}
+                  rules={{ required: true }}
+                  render={({ field }) => (
+                    <input
+                      {...field}
+                      type="date"
+                      className="w-full p-2 border rounded-md bg-white text-gray-900"
+                      min={new Date().toISOString().split("T")[0]}
+                    />
+                  )}
+                />
               </div>
 
               <div>
                 <label className="block text-sm font-medium text-gray-700 mb-2">
                   Check-out Date *
                 </label>
-                <LocalizationProvider dateAdapter={AdapterDayjs}>
-                  <Controller
-                    name="checkOut"
-                    control={control}
-                    render={({ field }) => (
-                      <DatePicker
-                        {...field}
-                        className="w-full"
-                        disablePast
-                        minDate={dayjs(new Date()).add(1, "day")}
-                        format="DD/MM/YYYY"
-                      />
-                    )}
-                  />
-                </LocalizationProvider>
+                <Controller
+                  name="checkOut"
+                  control={control}
+                  rules={{ required: true }}
+                  render={({ field }) => (
+                    <input
+                      {...field}
+                      type="date"
+                      className="w-full p-2 border rounded-md bg-white text-gray-900"
+                      min={
+                        new Date(Date.now() + 24 * 60 * 60 * 1000)
+                          .toISOString()
+                          .split("T")[0]
+                      }
+                    />
+                  )}
+                />
               </div>
             </div>
 
@@ -463,7 +419,7 @@ const Booking = () => {
                 render={({ field }) => (
                   <textarea
                     {...field}
-                    className="w-full p-2 border rounded-md h-24"
+                    className="w-full p-2 border rounded-md h-24 bg-white text-gray-900 placeholder-gray-500"
                     placeholder="Any special requests or preferences..."
                   />
                 )}
