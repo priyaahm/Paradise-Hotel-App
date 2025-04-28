@@ -204,13 +204,6 @@ const Home = () => {
             <div>
               <h3 className="text-xl font-semibold mb-4">Quick Links</h3>
               <div className="space-y-2">
-                <Link
-                  to="/about"
-                  className="block text-blue-600 hover:text-blue-700"
-                >
-                  About Us
-                </Link>
-
                 <a
                   href="https://www.zomato.com/puducherry"
                   className="block text-blue-600 hover:text-blue-700"
